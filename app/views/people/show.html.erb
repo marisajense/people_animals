@@ -1,0 +1,20 @@
+<h1> <%= @person.name %> </h1>
+
+<div>
+  <% if @person.age %>
+    <p>Age: <%= @person.age %> </p>
+  <% end%>
+
+  <% if @person.gender %>
+    <p> Gender: <%= @person.gender %> </p>
+  <% end %>
+
+  <% if @person.alive %>
+    <p>Alive: <%= @person.alive ? 'Yes' : 'No' %> </p>
+  <% end %>
+</div>
+
+<%= link_to "#{@person.name.pluralize} Animals",
+  person_animals_path(@person) %>
+  <br />
+<%= link_to 'All People', people_path %>

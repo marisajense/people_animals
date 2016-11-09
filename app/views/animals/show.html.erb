@@ -1,0 +1,29 @@
+<h1> Animal: <%= @animal.name %> </h1>
+<%= link_to("Edit", edit_person_animal_path(@person, @animal)) %>
+<%= link_to("Delete", person_animal_path(@person, @animal), method: :delete,
+  data: {confirm: 'Are you sure you want to delete this animal?'}) %>
+
+<hr />
+
+<div>
+  Owner: <%= @person.name %>
+</div>
+
+  <% if @animal.age %>
+<div>
+    <p>Age: <%= @animal.age %> </p>
+</div>
+  <% end%>
+
+<div>
+    <p> Species: <%= @animal.species %> </p>
+</div>
+
+<div>
+    <p>Alive?: <%= @animal.alive ? 'Yes' : 'No' %> </p>
+</div>
+
+<%= link_to "#{@person.name.pluralize} Animals",
+  person_animals_path(@person) %>
+  <br />
+<%= link_to 'All People', people_path %>
